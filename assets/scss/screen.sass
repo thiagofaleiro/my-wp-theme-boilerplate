@@ -1,0 +1,1250 @@
+@import "compass/css3"
+// @import "compass/reset"
+@import "normalize"
+@import "foundation"
+
+// Colors
+$red: #CF1F2E
+$black: #231f20
+$blackSoft: #333
+$bronze: #d69343
+$gray: #958f91
+$graySoft: #8d8580
+$graySoftLight: #bbbdbf
+$grayLight: #f2eeeb
+$background: $grayLight
+$borderColor: $grayLight
+
+// Font-faces
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800")
+// +font-face("HelveticaCond", font-files("helveticaltstd-cond.ttf", "helveticaltstd-cond.eot", "helveticaltstd-cond.svg", "helveticaltstd-cond.woff"), "helveticaltstd-cond.eot", normal, normal)
+
+// Font-faces families
+$openSans: "Open Sans", Arial, sans
+
+// Sprite
+@import "compass/utilities/sprites"
+$icons-sprite-dimensions: true
+$icons-spacing: 10px
+@import "icons/*.png"
++all-icons-sprites
+
+*[class*=icon]
+	display: inline-block
+	vertical-align: middle
+
+// ------------------
+// GRID CONFIGURATION
+// ------------------
+.row
+	max-width: 960px
+
+// --------------------
+//
+//	DEFAULT TAGS STYLES
+//
+// --------------------
+*, *:before, *:after
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0
+html, body
+	margin: 0
+	padding: 0
+html
+	object
+		display: none
+	body object
+		display: block
+body
+	position: relative
+	min-height: 100%
+body, input, textarea, p
+	font: 14px/1.6 $openSans
+	color: $black
+	-webkit-font-smoothing: antialiased
+p strong
+	font-weight: 600
+h1, h2, h3, h4
+	font-weight: 600
+h1
+	font-size: 25px
+h2
+	font-size: 21px
+h3
+	font-size: 15px
+a
+	color: $gray
+	text-decoration: none
+	&:hover
+		color: $black
+		text-decoration: none
+img
+	display: block
+	max-width: 100%
+form
+	position: relative
+	p
+		padding: 6px 0 10px
+	label
+		display: block
+		padding-bottom: 5px
+	input, textarea
+		display: block
+		width: 100%
+		border: 1px solid tint($borderColor,20%)
+		padding: 8px
+		background: #fff
+		font: 15px $openSans
+		line-height: 15px
+		color: #3c3c3c
+		&:focus
+			outline: 0
+			background: #fff
+	textarea
+		line-height: 18px
+		height: 160px
+		resize: none
+	input[type=submit]
+		display: block
+		width: auto
+		float: right
+		color: #fff
+		background: $red
+		border-color: transparent
+		padding: 7px 25px 7px 10px
+		cursor: pointer
+		margin: 10px auto 0
+		&:hover
+			background: shade($gray, 25%)
+	.info
+		font-size: 12px
+
+::-webkit-input-placeholder
+	color: tint($gray,20%)
+	text-transform: uppercase
+::-moz-placeholder
+	color: tint($gray,20%)
+	text-transform: uppercase
+::-moz-placeholder
+	color: tint($gray,20%)
+	text-transform: uppercase
+::-ms-input-placeholder
+	color: tint($gray,20%)
+	text-transform: uppercase
+
+/* Text selection coloring */
+::selection
+	background: $background
+	color: $black
+::-moz-selection
+	background: $background
+	color: $black
+
+
+/* Scrollbars */
+.page-info ::-webkit-scrollbar
+	-webkit-appearance: none
+	width: 4px
+.page-info ::-webkit-scrollbar-thumb
+	border-radius: 2px
+	background-color: rgba(0,0,0,0)
+	-webkit-box-shadow: 0 0 1px rgba(255,255,255,0)
+	-webkit-transition: all .4s ease-in-out
+.wrap-inner:hover::-webkit-scrollbar-thumb
+	background-color: rgba(0,0,0,.15)
+
+
+// ---------------
+//
+//	HELPER CLASSES
+//
+// ---------------
+.icon
+	display: inline-block
+// Image alignment
+.alignleft
+	float: left
+	margin: 0 30px 30px 0
+.alignright
+	float: right
+	margin: 0 0 30px 30px
+.aligncenter
+	clear: both
+	float: none
+	margin: 0 auto 30px
+.clearfix:before, .clearfix:after
+	content: "\0020"
+	display: block
+	height: 0
+	overflow: hidden
+.clearfix:after
+	clear: both
+.row-spacing-10
+	padding-top: 10px
+	padding-bottom: 10px
+.row-spacing-20
+	padding-top: 20px
+	padding-bottom: 20px
+.row-spacing-30
+	padding-top: 30px
+	padding-bottom: 30px
+.row-spacing-40
+	padding-top: 40px
+	padding-bottom: 40px
+.row-spacing-50
+	padding-top: 50px
+	padding-bottom: 50px
+.row-spacing-60
+	padding-top: 60px
+	padding-bottom: 60px
+
+// ---------------
+//
+//	GLOBAL CLASSES
+//
+// ---------------
+.background
+	background: $background
+.inner-box
+	padding: 10px 15px
+	background: #fff
+	+box-shadow(0 0 10px rgba(0,0,0,.2))
+.section-title
+	color: $red
+	font-size: 24px
+	font-weight: 700
+	line-height: 28px
+	padding: 0 0 5px
+	margin: 0
+	span
+		display: block
+		font-size: 20px
+		font-weight: 400
+		font-style: italic
+.section-subtitle, .section-title span
+	font-size: 20px
+.social-media
+	padding-bottom: 15px
+	ul
+		padding: 0
+		margin: 0
+	li
+		display: inline-block
+		vertical-align: middle
+		margin: 0 10px 0 0
+		a
+			display: block
+			text-align: left
+			text-indent: -1000px
+			overflow: hidden
+			&:hover
+				opacity: .6
+.page-text
+	padding-bottom: 30px
+	p, ul
+		padding-bottom: 20px
+	h2, h3, h4
+		font-family: $openSans
+		font-weight: 600
+		padding-top: 10px
+		padding-bottom: 20px
+.hidden-link
+	display: none
+// Reseta a configuracao do grid de colocar o ultimo item da lista a direita
+[class*="column"]+[class*="column"]:last-child
+	float: left
+
+
+// Edicoes do Fancybox
+body
+	.fancybox-skin
+		padding-top: 30px !important
+		+border-radius(0)
+	.fancybox-title
+		min-height: 30px
+		text-align: center
+		padding: 13px 45px 0
+		em
+			color: #fff
+	// .fancybox-nav
+	// 	width: 25px
+	// 	height: 40px
+	// 	top: 100%
+	// 	z-index: 8060
+	// 	span
+	// 		visibility: visible
+	// 		margin-top: -13px
+	// 	&.fancybox-prev
+	// 		left: 0
+	// 		span
+	// 			@extend .icons-nav-left
+	// 	&.fancybox-next
+	// 		right: 0
+	// 		span
+	// 			@extend .icons-nav-right
+	.fancybox-close
+		height: 25px
+		top: 0
+		right: 0
+		background: #f9f9f9
+		&:before
+			content: 'X'
+			font-size: 17px
+			font-weight: 300
+			display: inline-block
+			width: 100%
+			text-align: center
+			padding: 2px
+			color: #555
+			+scaleX(1.3)
+	// Responsive: Smartphone All
+	@media screen and (max-width: 767px)
+		& .fancybox-nav
+			&:before
+				display: block
+				color: #555
+				position: absolute
+				top: 10px
+				left: 0
+				font-size: 19px
+				font-weight: 300
+				+transform(scaleY(2.5))
+			&.fancybox-prev:before
+				content: '<'
+			&.fancybox-next:before
+				content: '>'
+				left: auto
+				right: 0
+
+// --------------
+//
+//	CUSTOM STYLES
+//
+// ---------------
+body
+	background: $graySoft
+.header, .main
+	background: #fff
+.header
+	padding: 35px 0 25px
+	.logo *
+		margin: 0
+.menu
+	padding-top: 60px
+	ul
+		display: inline-block
+		float: right
+		padding: 0
+		// border-bottom: 1px solid $grayLight
+	li
+		display: inline-block
+		padding: 4px 15px
+		font-size: 12px
+		font-weight: 600
+		text-transform: uppercase
+	a
+		color: $gray
+		&:hover
+			color: $blackSoft
+	.is-active
+		a, a:hover
+			color: $bronze
+			text-decoration: none
+
+.footer
+	position: relative
+	clear: both
+	padding: 40px 0
+	background: $graySoft
+	// margin-top: 20px
+	z-index: 100
+	*, a
+		color: $grayLight
+	h2, .f-menu
+		font-size: 12px
+		font-weight: 800
+		text-transform: uppercase
+	p
+		font-size: 13px
+		&:not(:last-child)
+			padding-bottom: 25px
+	a:hover
+		color: $black
+	[class*='icon']
+		display: inline-block
+		text-indent: -1000px
+		overflow: hidden
+	.f-menu
+		display: block
+		font-weight: 600
+		&.l-main
+			font-weight: 800
+			padding-left: 40px
+		li
+			display: block
+	.f-socialmedia
+		a
+			display: inline-block
+			margin-right: 10px
+.main
+	position: relative
+	z-index: 1
+	padding-bottom: 60px
+
+.pagination
+	clear: both
+	padding: 20px 0
+	text-align: right
+	a, span
+		display: inline-block
+		padding: 5px 10px
+		font-size: 10px
+		font-weight: 700
+		color: tint($graySoft, 50%)
+		border: 2px solid $borderColor
+		margin: 0 3px
+		&:hover
+			color: $blackSoft
+	a:hover
+		border-color: $graySoft
+	.arrow, span
+		color: $blackSoft
+	.arrow
+		margin-right: 10px
+		&:last-of-type
+			margin: 0 0 0 10px
+
+//
+// HOME
+//
+.home-list
+	img
+		min-width: 100%
+		height: auto
+	a:hover
+		text-decoration: none
+	.item
+		padding-top: 0.9375rem
+		padding-bottom: 0.9375rem
+		&-wrap:after, &-info
+			position: absolute
+			left: 0
+			bottom: 0
+			+transition(transform .4s ease-in-out)
+			+translate(0,100%)
+		&-wrap
+			display: block
+			position: relative
+			overflow: hidden
+			&:after
+				content: ''
+				display: block
+				width: 100%
+				height: 128px
+				background: $black
+				z-index: 10
+			&:hover
+				&:after, .item-info
+					+translate(0,0)
+		&-info
+			width: 100%
+			padding: 15px 25px
+			z-index: 15
+		&-title, &-tags
+			font-size: 12px
+			font-weight: 600
+			text-transform: uppercase
+			margin: 0
+		&-title
+			color: $gray
+			text-transform: lowercase
+		&-tags
+			color: $grayLight
+	// Item - different layout
+	.item.l-text
+		.item-wrap
+			padding: 35px 25px 15px
+			border: 2px solid $borderColor
+			&:after
+				display: none
+		.item-date, .item-type
+			text-transform: uppercase
+		.item-title
+			font: 300 22px/1.2 $openSans
+			color: $black
+			text-transform: none
+			padding-bottom: 15px
+		.item-type
+			font-size: 10px
+			padding: 3px 8px
+			color: $gray
+			background: $grayLight
+			position: absolute
+			top: 0
+			left: 0
+		.item-date
+			font-size: 13px
+			font-weight: 800
+			padding-bottom: 15px
+		.item-text:after
+			content: attr(data-more)
+			display: block
+			width: 100%
+			padding-top: 15px
+			font-size: 10px
+			font-weight: 600
+			font-style: italic
+			text-align: right
+			text-decoration: underline
+			text-transform: uppercase
+			color: $graySoft
+		.item-wrap:hover
+			background: $black
+			border-color: $black
+			.item-type
+				background: none
+			*
+				color: #fff
+	.item.l-caption
+		.item-wrap:after
+			display: none
+		.item-info, .item-title, img
+			+transition(all .4s ease-in-out)
+		.item-info
+			position: relative
+			background: $grayLight
+			padding-top: 7px
+			padding-bottom: 10px
+			+translate(0,0)
+		.item-title
+			font-size: 22px
+			font-weight: 300
+			color: $black
+			text-transform: none
+		.item-wrap:hover
+			img
+				opacity: .5
+			.item-info
+				background: #000
+			.item-title
+				color: #fff
+
+
+// PORTFOLIO
+.page-title
+	position: relative
+	padding-bottom: 40px
+	*
+		font-size: 12px
+		font-weight: 800
+		text-transform: uppercase
+		margin: 0
+	&:after
+		content: ''
+		display: block
+		width: 100%
+		height: 1px
+		// border-bottom: 2px solid $borderColor
+		margin-top: 5px
+	&-text
+		color: $black
+	&-category
+		color: $bronze
+		position: absolute
+		right: ($column-gutter/2)
+		top: 0
+	&.l-breadcrumb
+		*
+			display: inline-block
+		.page-title-text
+			color: #9b9a9a
+			&, *
+				font-weight: 500
+		a, span
+			color: $graySoftLight
+		a:hover, a.current:hover
+			color: #878787
+			text-decoration: underline
+		.current
+			display: inline-block
+			color: $bronze
+			font-weight: 500
+h1.page-title
+	margin-top: 0
+	font-size: 12px
+	font-weight: 800
+	text-transform: uppercase
+	border-bottom: 2px solid $borderColor
+	padding-bottom: 2px
+	margin-bottom: 30px
+
+
+.portfolio-menu, .page-menu
+	padding-top: 5px
+	font-size: 10px
+	font-weight: 600
+	text-transform: uppercase
+	ul
+		padding: 0
+	li
+		display: block
+		padding: 2px 0
+	a:hover, .is-active, .is-active a
+		color: $bronze
+
+.portfolio-list
+	text-align: right
+	.item
+		display: inline-block
+		vertical-align: bottom
+		width: 44.5%
+		padding-left: 10px
+		padding-bottom: 20px
+		text-align: left
+		// border-bottom: 2px solid $borderColor
+		margin: 0 0 0 -4px
+		&:nth-of-type(odd)
+			padding-left: 0
+			padding-right: 10px
+		&:last-child, &:nth-last-child(2)
+			border: 0
+		img:not(.no-border)
+			width: 100%
+			height: auto
+			border: 2px solid $borderColor
+		&-info
+			height: 75px
+			overflow: hidden
+			*
+				font-size: 10px
+				font-weight: 600
+				text-transform: uppercase
+			a
+				color: $graySoft
+				&:hover
+					color: $black
+			// p
+			// 	max-height: 32px
+			// 	overflow: hidden
+		&-title
+			margin: 15px 0 0
+			a
+				color: $black
+				&:hover
+					text-decoration: underline
+	.items-divisor
+		clear: both
+		display: inline-block
+		width: 89%
+		margin-bottom: 20px
+	.item:last-of-type + .items-divisor
+		display: none
+
+// PAGE AND PORTFOLIO ITEM PAGE
+.page-info .wrap-inner, .page-content
+	// position: relative
+	// top: -10px
+	padding-top: 10px
+.page-info
+	min-height: 100vh
+	*
+		font-size: 12px
+		color: $blackSoft
+	h1, h2
+		margin: 0
+		font-weight: 800
+		text-transform: uppercase
+	h2
+		padding-top: 20px
+	p
+		padding: 5px 0
+	.wrap-inner
+		max-width: 215px
+		background: #fff
+		padding-right: 10px
+	&.is-fixed
+		.wrap-inner
+			position: fixed
+			top: 0
+			height: 100vh
+			overflow-y: scroll
+			z-index: 10
+	&.l-portfolio
+		p:first-of-type
+			padding: 10px 0 30px
+.page-content
+	// padding-bottom: 40px
+	div, p
+		padding-bottom: 20px
+	div p
+		padding-bottom: 0
+	img
+		display: block
+		max-width: 100%
+		height: auto
+		border: 2px solid $borderColor
+		// margin: 0 auto
+	a
+		&:hover
+			img
+				border-color: $graySoft
+		img:hover
+			cursor: zoom-in
+	.photo-info
+		display: block
+		padding-top: 10px
+		font-size: 12px
+		font-style: italic
+		a
+			font-style: italic
+			font-size: 10px
+			font-style: normal
+			color: #958f91
+			text-decoration: underline
+			text-transform: uppercase
+			&:hover
+				color: $black
+			&:after
+				content: attr(data-more)
+				display: block
+				font-size: 12px
+				font-style: normal
+				text-transform: uppercase
+
+// PAGE > EQUIPE
+.item-equipe
+	display: inline-block
+	vertical-align: top
+	width: 49%
+	padding: 20px 0
+	&:nth-of-type(even)
+		padding-left: $column-gutter
+	&:nth-of-type(even):not(.l-estudio):not(.l-versalete)
+		position: relative
+	// &:nth-child(1), &:nth-child(2)
+	// 	padding-top: 0
+	// 	margin-top: -5px
+	*
+		font-size: 12px
+	&-thumb
+		position: relative
+		display: block
+		width: 110px
+		// height: 110px
+		overflow: hidden
+		margin-bottom: 20px
+		// +border-radius(100%)
+		img
+			display: block
+			width: 100%
+			height: auto
+			border: 0
+	&-title, &-subtitle
+		text-transform: uppercase
+	&-title
+		font-weight: 800
+	&-text
+		// padding-top: 20px
+	&:last-of-type + .items-divisor
+		display: none
+
+// PAGE > SOBRE
+.item-sobre
+	// display: inline-block
+	// vertical-align: top
+	// width: 49%
+	// padding: 20px 0
+	// margin-left: -4px
+	padding-top: 20px
+	padding-bottom: 20px
+	&.medium-4, &.medium-6:nth-of-type(1), &.medium-6:nth-of-type(2)
+		padding-top: 0
+	&:first-of-type, &.medium-12
+		padding-left: 0
+	& > h2
+		margin: 0
+		padding-bottom: 15px
+	*
+		font-size: 12px
+	&-thumb
+		position: relative
+		display: block
+		width: 110px
+		// height: 110px
+		overflow: hidden
+		margin-bottom: 20px
+		// +border-radius(100%)
+		img
+			display: block
+			width: 100%
+			height: auto
+			border: 0
+	&-title, &-subtitle
+		text-transform: uppercase
+	&-title
+		font-weight: 800
+	& &-text
+		> p
+			clear: both
+			padding-bottom: 20px
+			img
+				max-width: 100%
+				height: auto
+	&:last-of-type + .items-divisor
+		display: none
+.items-divisor
+	display: block
+	clear: both
+	width: 100%
+	border-bottom: 3px solid $borderColor
+.page-subtitle
+	font-size: 4em
+	font-weight: 800
+	line-height: 1
+	color: $graySoft
+	padding-bottom: 40px
+.page-section-title
+	@extend .item-sobre-title
+	clear: both
+	display: block
+	width: 100%
+	padding-top: 7px
+	font-size: 12px
+	border-top: 2px solid $borderColor
+	margin: 20px 0
+.text-blue, .l-estudio
+	color: #2553a4
+.text-green, .l-versalete
+	color: #2ca339
+.text-gold
+	color: $bronze
+
+// PAGE SOBRE > HISTORICO
+.page-date-nav, .item-historico
+	border-bottom: 3px solid $borderColor
+.page-date-nav
+	padding-bottom: 10px
+	*
+		display: inline-block
+		vertical-align: middle
+	.arrow
+		padding: 2px 10px
+		border: 2px solid $borderColor
+		&:hover
+			border-color: $graySoft
+	p
+		min-width: 200px
+		text-transform: uppercase
+		font-size: 0.8rem
+		font-weight: 600
+		color: $bronze
+		text-align: center
+.item-historico
+	display: block
+	padding: 20px 10px
+	&:last-of-type
+		margin-bottom: 40px
+	&-title
+		display: block
+		font-size: 1.45rem
+		font-weight: 300
+		line-height: 1.1
+		margin: 0
+		&, a
+			color: $blackSoft
+		a:hover
+			color: $bronze
+		& + p
+			padding: 5px 0 0
+			font-weight: 300
+			color: $graySoft
+	&.l-page
+		padding-top: 0
+		border: 0
+		.item-historico-texto
+			padding-top: 40px
+			p
+				padding: 10px 0
+				font-size: 0.8rem
+				color: $blackSoft
+
+
+
+// CONTATO
+.page-contato
+	padding-bottom: 70px
+	p
+		font-size: 12px
+		padding-bottom: 30px
+		strong
+			font-size: 10px
+		a
+			color: $graySoft
+			&:hover
+				text-decoration: underline
+	h2, strong
+		text-transform: uppercase
+		font-weight: 800
+		color: $blackSoft
+	h2
+		font-size: 12px
+	img
+		display: block
+		width: 100%
+	iframe
+		width: 100%
+
+// body .wpcf7-form
+// 	position: relative
+// 	.wpcf7-not-valid-tip
+// 		font-size: 0.8rem
+// 	&.sent
+// 		padding-top: 90px
+// 	&, .wpcf7-mail-sent-ok
+// 		+transition(all .4s ease)
+// 	.wpcf7-mail-sent-ok
+// 		width: 100%
+// 		margin: 15px
+// 		padding: 20px
+// 		text-align: center
+// 		font-size: 14px
+// 		color: shade(green,50%)
+// 		background: tint(green,95%)
+// 		border: 1px solid tint(green,80%)
+// 	.wpcf7-validation-errors
+// 		display: none !important
+// 	.wpcf7-response-output
+// 		clear: both
+// 		position: absolute
+// 		top: 0
+// 		left: 0
+
+
+// POSTS: CURSOS & TEXTOS E REFLEXOES
+$itemCursoPaddingLeft: 230px
+.post-item
+	position: relative
+	min-height: 190px
+	padding: 0 0 35px $itemCursoPaddingLeft
+	border-bottom: 3px solid $borderColor
+	margin-top: 20px
+	&:first-of-type
+		margin-top: 0
+	&.l-no-thumb
+		padding-left: 0
+	p
+		padding-bottom: 5px
+		font-size: 13px
+		color: $blackSoft
+	b
+		font-weight: 600
+	strong
+		text-transform: uppercase
+		font-weight: 800
+		margin-right: 30px
+	& &-title
+		position: relative
+		top: -10px
+		font-size: 22px
+		font-weight: 300
+		margin: 0 0 -5px
+		a
+			color: $blackSoft
+			&:hover
+				color: $black
+				border-bottom: 1px solid $black
+	& &-text
+		padding-top: 20px
+		font-size: 12px
+		color: tint($black, 30%)
+		line-height: 1.5
+	& &-img
+		display: block
+		width: ($itemCursoPaddingLeft - 20)
+		height: 170px
+		overflow: hidden
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 10
+		img
+			display: block
+			width: 100%
+			min-height: 100%
+			border: 0
+	& &-links
+		display: inline-block
+		text-align: right
+		padding: 5px 0 7px
+		position: absolute
+		right: 0
+		bottom: 0
+		z-index: 1
+		a
+			display: inline-block
+			padding: 3px 18px
+			font-size: 10px
+			// font-weight: 300
+			font-style: italic
+			color: $gray
+			text-transform: uppercase
+			text-decoration: underline
+			&:hover
+				color: $black
+			&.l-inscricao
+				color: $bronze
+				font-style: normal
+				border-left: 2px solid $borderColor
+	& &-foot
+		clear: both
+		text-align: right
+		padding-top: 40px
+		a
+			font-size: 10px
+			font-weight: 600
+			color: $bronze
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+				span
+					text-decoration: none
+			span
+				display: inline-block
+				vertical-align: middle
+				padding: 1px 7px
+				font-size: 12px
+				color: $gray
+				border: 2px solid $borderColor
+				margin-right: 3px
+	&.l-compact
+		padding: 0 0 22px 155px
+		min-height: 115px
+		.post-item-curso
+			top: 0
+		.post-item-img
+			width: 135px
+			height: 108px
+
+// POSTS PAGE: CURSO / TEXTOS E REFLEXOES
+.post-item.l-page
+	border: 0
+	.post-item
+		&-links
+			position: relative
+			width: 100%
+			padding: 20px 0 10px
+			text-align: right
+		&-content
+			width: calc(100% + #{$itemCursoPaddingLeft})
+			position: relative
+			left: -$itemCursoPaddingLeft
+			*
+				font-size: 12px
+			p
+				padding: 10px 0
+			ul
+				padding: 10px 30px
+				li
+					display: block
+					padding: 4px 0
+					font-weight: 600
+			h2
+				@extend .page-section-title
+		.page-section-title, &-content h2
+			margin-bottom: 10px
+			padding: 40px 0 7px
+			border: 0
+			border-bottom: 2px solid $borderColor
+			&:first-of-type
+				padding-top: 0
+
+.professores-list
+	padding: 10px 0 !important
+	.item
+		position: relative
+		clear: both
+		padding: 0 0 0 160px !important
+		&:not(:last-child)
+			margin-bottom: 40px
+		&-title
+			font-size: 10px
+			font-weight: 800
+			text-transform: uppercase
+			span
+				display: block
+				font-weight: 300
+		&-img
+			display: block
+			width: 95px
+			height: 95px
+			position: absolute
+			top: 0
+			left: 0
+			+border-radius(100%)
+			overflow: hidden
+			img
+				min-width: 100%
+
+// TEXTOS: LISTA E PAGINA DO POST
+.textos-list
+	.post-item
+		margin-bottom: 60px
+		&.l-no-thumb
+			padding-left: 0
+		&-links a
+			padding: 3px 0
+.post-item.textos-page
+	.post-item
+		&-links
+			padding: 20px 0
+			text-align: left
+			a
+				font-size: 12px
+				font-style: normal
+				padding: 3px 0
+				color: $blackSoft
+			[class*=icon]
+				margin-right: 10px
+		&-content
+			width: 100%
+			left: 0
+			padding-top: 20px
+			border-top: 2px solid $borderColor
+
+
+// ------------
+//
+//	TRANSITIONS
+//
+// -------------
+a, input, .basic-transition,
+.icon-mobile .icon, .icon-mobile .icon::before, .icon-mobile .icon::after,
+.wpcf7-form, .wpcf7-mail-sent-ok
+	+transition(all 0.4s ease)
+
+.basic-transition-long
+	+transition(all 0.8s ease)
+
+
+
+// -----------
+//
+//	RESPONSIVE
+//
+// -----------
+// Responsive: Smartphone All
+@media screen and (max-width: 767px)
+	html
+		overflow-x: hidden
+	body.open
+		position: relative
+		height: 100%
+		overflow: hidden
+		// +translate(50%,0)
+		.header, .main, .footer
+			+translate(50%,0)
+		.menu
+			width: 100%
+			left: 0
+			.icon-mobile
+				.icon
+					border-color: transparent
+					&::before, &::after
+						border-color: #fff
+					&::before
+						+rotate(-45deg)
+						bottom: 1px
+						margin: 0
+					&::after
+						@include rotate(45deg)
+						top: 0
+			& > ul
+				width: 50%
+				left: 0
+				li
+					opacity: 1
+	.header
+		padding: 15px 0 20px
+	.menu
+		padding-top: 20px
+	.footer
+		.f-menu.l-main
+			padding-left: $column-gutter/2
+		.small-12
+			padding-top: 20px
+	.page-title
+		padding-bottom: 20px
+	// PAGE MENU
+	.page-menu
+		clear: both
+		padding-bottom: 20px
+		margin-bottom: 20px
+		border-bottom: 2px solid $borderColor
+	.portfolio-menu
+		padding-bottom: 25px
+		margin-top: -10px
+		ul
+			overflow: hidden
+		li
+			display: block
+			width: 50%
+			float: left
+			color: $graySoft
+	.portfolio-list
+		.item
+			width: 100%
+			padding-left: 0 !important
+			padding-right: 0 !important
+			margin-bottom: 20px
+			border-bottom: 2px solid $borderColor
+		.item-info
+			height: auto
+		.items-divisor
+			display: none
+	.page-info
+		height: auto
+		padding-bottom: 20px
+		border-bottom: 2px solid $borderColor
+		margin-bottom: 20px
+		.wrap-inner
+			max-width: 100%
+	// PAGE > SOBRE
+	.item-sobre
+		width: 100%
+		padding: 0
+		&:nth-of-type(even)
+			padding-left: 0
+		&.l-estudio
+			padding-bottom: 40px
+	// PAGE > CONTATO
+	.page-contato img
+		margin-bottom: 20px
+	// LISTS WITH THUMBNAILS
+	.post-item
+		padding-left: 0
+		padding-top: 260px
+		&.l-no-thumb
+			padding-top: 0
+		.post-item-img
+			width: 100%
+			height: 240px
+	.post-item.l-page .post-item-content
+		width: 100%
+		left: 0
+	// PAGE > PORTFOLIO
+	.page-info
+		min-height: auto
+		&.is-fixed .wrap-inner
+			position: relative
+			height: auto
+
+// Responsive: Smartphone - Portrait
+@media screen and (max-width: 480px)
+
+// Responsive: Smartphone - Landscape
+@media only screen and (min-width: 480px) and (max-width: 767px)
+
+// Responsive: iPad - Portrait
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)
