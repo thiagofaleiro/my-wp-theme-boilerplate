@@ -1,5 +1,8 @@
 module.exports = {
-    build: ['compass:dev', 'browserify', 'uglify', 'concat:dist'],
+    build_js: [['clean:js', 'concat:libs'], ['browserify', 'uglify:dist']],
+    build_css: [['compass:clean', 'compass:build', 'usebanner']],
+    build: ['concurrent:build_css', 'concurrent:build_js'],
+    dist: [['compass:dev', 'usebanner'], 'concurrent:build_js'],
     lint: ['csslint', 'jshint'],
-    runserver: ['watch', 'django-manage:runserver']
+    runserver: ['watch', 'connect']
 };

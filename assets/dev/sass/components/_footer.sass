@@ -1,0 +1,122 @@
+//	Component: Footer
+// ---------------------------------------
+.footer
+	// @extend .section
+	background: $blue-dark
+	&-newsletter
+		@extend .v-spacing-40
+		background: $gold
+		input, button
+			display: inline-block
+			vertical-align: bottom
+		input
+			width: calc(100% - 130px)
+			padding: 0 0 10px
+			margin-right: 10px
+			+placeholder
+				color: rgba($blue-dark, 0.8)
+			&, &:focus
+				color: $blue-dark
+				background: none
+				border: 0
+				border-bottom: 1px solid $blue-dark
+		button
+			width: 110px
+			color: $blue-dark
+			background: none
+			padding: 0
+			border: 0
+			cursor: pointer
+			> span
+				text-align: right
+				&::before
+					left: auto
+		form.is-done
+			display: none
+		form.is-done + &--message
+			height: auto
+			opacity: 1
+		&--message
+			display: inline-block
+			vertical-align: middle
+			padding-top: 4px
+			height: 0
+			opacity: 0
+			overflow: hidden
+			transition: 0.3s opacity ease-in-out
+		@include breakpoint(medium down landscape)
+			padding: 30px 20px 20px
+			.small-12
+				flex: 100%
+				max-width: 100%
+				padding-left: 0
+				padding-right: 0
+			h2
+				font-size: 1.2em
+				text-align: center
+				padding-bottom: 20px
+
+	&-copyright
+		@extend .v-spacing-20
+		background: #fff
+		a
+			color: $blue-dark
+		@include breakpoint(medium down landscape)
+			padding: 30px
+			font-size: 0.9em
+			color: lighten($text-color, 30%)
+			p
+				text-align: center
+				&:first-child
+					padding-bottom: 10px
+	// @include breakpoint(medium down landscape)
+
+// Contact
+.contact
+	&-info
+		height: auto
+		padding-bottom: 20px
+		.column
+			&:last-child
+				padding-left: 60px
+			&:last-child > p:last-child, a:hover
+				color: white
+				text-decoration: none
+			> p
+				padding-bottom: 20px
+			> p , a
+				color: $gold
+			@include breakpoint(medium down landscape)
+				flex: 100%
+				max-width: 100%
+				padding: 15px 0 !important
+				&:last-child
+					text-align: center
+					> p
+						display: inline-block
+						width: 45%
+						padding: 0 20px
+						border-left: 1px solid white
+						&:first-child
+							border: 0
+						&:last-child
+							display: none
+						> a
+							color: white
+		.section-title
+			border-color: transparent
+	&-map
+		position: relative
+		width: 100%
+		height: 0
+		padding-top: 50%
+		margin-bottom: 40px
+		> iframe
+			@extend .pos-absolute
+			display: block
+			width: 100%
+			height: 100%
+			transition: 0.4s filter ease-in-out
+			+filter(grayscale(100%))
+			&:hover
+				+filter(grayscale(0))

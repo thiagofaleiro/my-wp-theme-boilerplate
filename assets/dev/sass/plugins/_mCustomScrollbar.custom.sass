@@ -1,0 +1,34 @@
+.mCSB_container
+	padding-right: 20px
+
+.mCSB_scrollTools
+	width: 26px
+	// Buttons
+	.mCSB_buttonUp, .mCSB_buttonDown
+		// @extend .icon-arrow
+		font: 28px 'fernandes-silva-icons'
+		color: $gray-dark
+		width: 30px
+		height: 26px
+		opacity: 0.45 !important
+		&:before
+			position: relative
+			top: -2px
+			left: -1px
+		&:hover
+			// color: $gray-dark
+			text-decoration: none
+	.mCSB_buttonUp
+		@extend .icon-arrow-up
+		transform: translateY(-2px)
+	.mCSB_buttonDown
+		@extend .icon-arrow-down
+		transform: translateY(2px)
+	// Dragger
+	.mCSB_draggerRail
+		background: none
+	.mCSB_dragger .mCSB_dragger_bar
+		width: 2px
+		background: $gray-dark !important
+		border-radius: 5px
+		opacity: 0.35

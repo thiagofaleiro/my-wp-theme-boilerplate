@@ -3,22 +3,18 @@ module.exports = {
     options: {
         nospawn: true,
         debounceDelay: 250,
-        livereload: true,
+        livereload: true
     },
     html: {
-        files: ['<%= path.main %>_html/*.html'],
-        tasks: [],
+        files: ['<%= path.main %>/**/*.html'],
+        tasks: ['browserSync:dev']
     },
     css: {
-        files: ['<%= path.src %>scss/**/*.{scss,sass}'],
-        tasks: ['compass:dev'],
+        files: ['<%= path.src %>/**/*.{scss,sass}'],
+        tasks: ['compass:dev', 'usebanner']
     },
     js: {
-        files: ['<%= path.src %>js/**/*.js'],
-        tasks: ['browserify', 'uglify', 'jshint'],
-    },
-    img: {
-        files: ['<%= path.src %>**/*.{png,jpg,gif}'],
-        tasks: ['imagemin'],
+        files: ['<%= path.src %>/js/*.js'],
+        tasks: ['jshint', 'browserify', 'uglify:dist']
     }
 };

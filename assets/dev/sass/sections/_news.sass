@@ -1,0 +1,23 @@
+// Section: Noticias (News)
+section[data-section="noticias"]
+	@include breakpoint(medium down landscape)
+		display: block
+		position: relative
+		padding-bottom: 50px
+		.row
+			padding-top: 0
+		> .small-12
+			padding: 0
+		.column
+			flex: 100%
+			max-width: 100%
+		.news-list
+			padding: 35px 10px 0
+			&-item
+				max-width: 100%
+		.pagination
+			width: 100%
+			position: absolute
+			left: 0
+			bottom: 0
+			text-align: center

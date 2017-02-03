@@ -1,0 +1,34 @@
+//	Component: Pagination
+// ---------------------------------------
+.pagination
+	&-btn, &-numbers, &-numbers > li
+		display: inline-block
+		vertical-align: middle
+	&-btn
+		padding: 7px 12px
+		margin: 2px
+		border: 1px solid transparent
+		font-size: 0.85em
+		&:not(.is-active)
+			cursor: pointer
+		&, &.is-active
+			color: $gold
+			background: none
+		&:hover:not(.is-active)
+			border-color: $gold
+			color: white
+			background: $gold
+		&.is-active
+			border-color: $gold
+		&:before
+			font-family: 'fernandes-silva-icons'
+		&[data-action]
+			padding-left: 8px
+			padding-right: 8px
+		&[data-action="prev"]
+			@extend .icon-arrow-left
+		&[data-action="next"]
+			@extend .icon-arrow-right
+	&-numbers
+		> li
+			@extend .pagination-btn

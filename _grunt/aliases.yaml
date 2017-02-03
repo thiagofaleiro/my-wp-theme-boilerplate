@@ -1,18 +1,7 @@
 default:
-  - 'watch'
-s:
-  - 'browserSync'
-  - 'watch'
-o:
-  - 'imagemin'
-b:
-  - 'concurrent:build'
-  - 'concurrent:lint'
-  - 'o'
-r:
-  - 'b'
-  - 'rsync'
-rs:
+  - 'concurrent:dist'
   - 'connect'
   - 'browserSync'
   - 'watch'
+build:
+  - 'concurrent:build'

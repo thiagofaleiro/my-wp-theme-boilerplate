@@ -1,20 +1,35 @@
 module.exports = {
     options: {
-        basePath: '<%= path.src %>',
-        sassDir: 'scss',
-        cssDir: 'css',
-        imagesDir: 'img',
-        outputStyle: 'expanded',
-        relativeAssets: true
+      importPath: [
+        '<%= path.lib %>/foundation-sites/scss',
+        '<%= path.dest %>/fonts'
+      ],
+      basePath: '<%= path.dest %>',
+      sassDir: 'dev/sass',
+      cssPath: '<%= path.main %>',
+      imagesDir: 'images',
+      fontsDir: 'fonts',
+      generatedImagesDir: 'images',
+      outputStyle: 'compressed',
+      noLineComments: true,
+      relativeAssets: true,
+      // force: true
     },
     dev: {
-        options: {
-            environment: 'development'
-        }
+      options: {
+        environment: 'development',
+        outputStyle: 'compact'
+      }
     },
-    dist: {
-        options: {
-            environment: 'production'
-        }
+    build: {
+      options: {
+        environment: 'production',
+        outputStyle: 'compressed'
+      }
+    },
+    clean: {
+      options: {
+        clean: true
+      }
     }
 };

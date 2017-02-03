@@ -1,0 +1,26 @@
+// -------------------
+//	  Mixins
+// -------------------
+
+=placeholder
+	&::-webkit-input-placeholder
+		@content
+	&:-moz-placeholder
+		@content
+	&::-moz-placeholder
+		@content
+	&:-ms-input-placeholder
+		@content
+
+@mixin text-vertical-center
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+@mixin pos-absolute-top
+	position: absolute
+	top: 0
+
+@mixin pos-absolute-bottom
+	position: absolute
+	top: 0

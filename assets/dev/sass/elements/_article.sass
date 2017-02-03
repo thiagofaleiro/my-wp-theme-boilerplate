@@ -1,0 +1,24 @@
+// Element: Article
+.article
+	&--header
+		height: 115px
+		margin-bottom: 20px
+	&--header > &--title
+		max-height: 85px
+		overflow: hidden
+	&--header > &--date
+		margin-bottom: 0
+	&--header + &--text
+		height: calc(100% - 155px)
+	&--title
+		font-size: 1.92em
+		margin-bottom: 20px
+		@include breakpoint(medium down landscape)
+			font-size: 1.5em
+	&--date
+		margin: -12px 0 30px
+	&--text
+		p
+			line-height: 1.8
+			&:not(:first-child)
+				padding-top: 20px

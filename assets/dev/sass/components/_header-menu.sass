@@ -1,0 +1,241 @@
+//	Component: Header
+// ---------------------------------------
+.header
+	width: 100%
+	height: $header-height
+	position: fixed
+	top: 0
+	left: 0
+	background: $blue-dark
+	z-index: 50
+	.is-user-logged &
+		margin-top: 30px
+	.row
+		position: relative
+	.icon-mobile
+		display: none
+		@extend .off-tap-bg
+	&-logo
+		@extend .pos-absolute
+		top: calc(50% - 0.25em)
+		left: 10px
+		font-size: 4em
+		width: 4em
+		height: 1em
+		color: $gold
+		overflow: hidden
+		z-index: 10
+		& > a
+			display: block
+			text-indent: -1000px
+			transition: 0.3s transform ease-in-out
+			transform-origin: center
+			&:before
+				display: block
+				text-indent: 0
+			&:hover
+				transform: scale(0.95)
+				text-decoration: none
+	@include breakpoint(large down)
+		height: 100px
+		&-logo
+			top: calc(50% - 0.15em)
+			font-size: 3.25em
+		.menu
+			padding-left: 16em
+			padding-right: 100px
+			font-size: 0.9em
+			& > ul > li
+				margin: 10px 14px 0
+		[class*='btn'] > a, .btn
+			font-size: 0.9em
+			padding: 10px
+	// @include breakpoint(medium down landscape)
+	@include breakpoint(medium down landscape)
+		display: block !important
+		height: 70px
+		z-index: 200
+		.has-modal-opened &
+			transition: opacity 0.4s ease-in-out, visibility 0s ease 0.4s
+			visibility: hidden
+			opacity: 0
+		.row
+			min-height: $header-height
+		.icon-mobile
+			font-size: 30px
+			display: inline-block
+			width: 1em
+			height: 1em
+			position: absolute
+			top: calc(50% - 1.2em)
+			left: 7px
+			z-index: 100
+			cursor: pointer
+		&-logo
+			font-size: 3em
+			position: relative
+			width: 100%
+			text-align: center
+			top: 10px
+			left: auto
+		&.l-green
+			border-bottom: 1px solid lighten($gray, 25%)
+			background: rgba(white, 0.8)
+			.header-logo
+				color: $green
+		.menu
+			// visibility: hidden
+			display: block
+			width: 100%
+			padding: 0
+			height: calc(100vh - 70px)
+			position: fixed
+			top: 70px
+			left: 0
+			background: none
+			transition: background 0.4s ease-in-out, visibility 0s ease-in-out 0.7s
+			pointer-events: none
+			> ul
+				position: relative
+				display: block
+				width: 100%
+				height: 100%
+				padding: 20px
+				border: 0
+				transform: translateX(100%)
+				transition: transform 0.4s ease-in-out
+				> li
+					display: block
+					padding: 10px 0
+					margin: 0
+					> a
+						display: inline-block
+						width: auto !important
+				&:not(.lang-list)
+					overflow: auto
+					> li
+						float: none !important
+				&.lang-list
+					pointer-events: auto
+					width: auto
+					height: auto
+					padding: 0
+					top: 0
+					right: 10px
+					font-size: 0.85em
+					transform: translate(0, -50px)
+					> li
+						padding: 0
+						border: 0 !important
+						> a
+							padding: 0.6em
+		body.is-menu-open &
+			.menu
+				pointer-events: auto
+				visibility: visible
+				background: rgba($blue-dark, 0.9)
+				transition: background 0.4s ease-in-out
+				ul:not(.lang-list)
+					transform: translateX(0)
+
+
+// Custom Hamburguer Icon
+// ---------------------------------------
+$icon-border-size: 3px
+.icon-my-hamburguer
+	position: relative
+	font-size: 23px
+	display: inline-block
+	width: 1.2em
+	height: 1em
+	overflow: hidden
+	&:before, &:after
+		@extend .pos-absolute
+		content: ''
+		display: block
+		width: 100%
+		height: calc(50% - 3px)
+		box-shadow: 0 2px 0 $gold inset, -10px 2px 0 $gold
+		transition: transform 0.15s ease-in-out, box-shadow 0.25s ease-in-out 0.15s
+	&:after
+		height: 3px
+		top: auto
+		left: -0.75em
+		bottom: 3px
+		box-shadow: 0 2px 0 $gold inset
+	// Menu Opened - change it to cross (close)
+	body.is-menu-open &
+		&:before, &:after
+			box-shadow: 0 2px 0 $gold inset
+			transition: transform 0.3s ease-in-out 0.15s, box-shadow 0.15s ease-in-out
+		&:before
+			transform: rotate(45deg) translate(1px, -1px)
+			transform-origin: left top
+		&:after
+			transform: rotate(-45deg) translate(0.55em, 0.65em)
+			transform-origin: left bottom
+	// Green Style
+	.l-green &
+		&:before
+			box-shadow: 0 2px 0 $green inset, 5px 2px 0 $green
+		&:after
+			box-shadow: 0 2px 0 $green inset, 10px 2px 0 $green
+		body.is-menu-open &
+			&:before, &:after
+				box-shadow: 0 2px 0 $gray inset
+
+
+//	Component: Menu
+// ---------------------------------------
+.menu
+	position: relative
+	width: 100%
+	padding: 32px 130px 0 18em
+	font-weight: 400
+	text-align: left
+	> ul
+		width: 100%
+		&, > li
+			display: inline-block
+		> li
+			margin: 10px 20px 0
+			&:not([class*='btn']) > a:not(.btn)
+				position: relative
+				padding-bottom: 5px
+				color: white
+				text-decoration: none
+				&:before
+					content: ''
+					width: 0
+					height: 1px
+					display: inline-block
+					position: absolute
+					left: 0
+					bottom: 0
+					background: $gold
+					transition: width 0.3s ease-in-out
+			&:not([class*='btn'])
+				&.is-active > a, & > a:not(.btn):hover
+					color: $gold
+					&:before
+						width: 100%
+			&[class*='btn']
+				margin-top: 0
+				float: right
+				> a
+					@extend .btn
+					width: 100%
+		&.lang-list
+			width: auto
+			position: absolute
+			top: 32px
+			right: 20px
+			> li
+				display: block
+				float: left
+				margin: 0 0 0 -1px
+				> a
+					color: $gold
+					&:hover
+						color: $white
+						text-decoration: none

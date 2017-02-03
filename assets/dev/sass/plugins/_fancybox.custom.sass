@@ -1,0 +1,81 @@
+// Editing fancybox defaults
+body
+	.fancybox
+		&-overlay
+			background: rgba(white, 0.8)
+		&-wrap
+			padding-top: 40px
+			padding-bottom: 30px
+		&-opened .fancybox-skin
+			box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15)
+		&-title
+			position: absolute
+			top: calc(100% + 5px)
+			font: 1.4em $font-family
+			color: white
+			// Caption wrap
+			&-float-wrap .child
+				background: none
+				text-shadow: none
+		&-close, &-nav
+			font-family: 'roberto-zagury-font'
+			line-height: 1
+			color: $gray-dark
+			opacity: 0.6
+			&:hover
+				opacity: 1
+		&-close
+			@extend .icon-close
+			font-size: 2em
+			width: auto
+			height: auto
+			background: none
+			top: -40px
+			right: 0
+			line-height: 1
+			&:hover
+				text-decoration: none
+				transform: scale(1.2)
+		&-nav
+			> span
+				// @extend .icon-arrow
+				@extend .basic-total-transition
+				visibility: visible
+				width: auto
+				height: auto
+				font-size: 1.6em
+				padding: 0.4em
+				margin: 0
+				background: none
+				top: calc(50% - 1em)
+		&-next
+			> span
+				transform: translateX(3.5em) rotate(-90deg)
+			&:hover > span
+				transform: translateX(3.5em) rotate(-90deg) scale(1.2)
+		&-prev
+			> span
+				transform: scaleX(-1) translateX(3.5em) rotate(-90deg)
+			&:hover > span
+				transform: scaleX(-1) translateX(3.5em) rotate(-90deg) scale(1.2)
+
+		// Responsive: Smartphone All
+		@media screen and (max-width: 767px)
+			&-nav
+				> span
+					font-size: 1em
+			// 	&:before
+			// 		display: block
+			// 		color: #555
+			// 		position: absolute
+			// 		top: 10px
+			// 		left: 0
+			// 		font-size: 19px
+			// 		font-weight: 300
+			// 		+transform(scaleY(2.5))
+			// 	&.fancybox-prev:before
+			// 		content: '<'
+			// 	&.fancybox-next:before
+			// 		content: '>'
+			// 		left: auto
+			// 		right: 0

@@ -1,0 +1,36 @@
+// Section: Editorials (Editoriais)
+section[data-section="editoriais"]
+	> article > .icon-close
+		display: none
+	@include breakpoint(medium down landscape)
+		display: block
+		.article-header
+			padding-right: 30px
+		.small-12
+			padding: 0
+			max-width: 100%
+		> article
+			visibility: hidden
+			width: 100%
+			height: 100%
+			padding-top: 20px
+			position: fixed
+			top: 0
+			left: 0
+			background: white
+			z-index: 300
+			transform: translateY(100px)
+			opacity: 0
+			transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out
+			&.is-open
+				visibility: visible
+				transform: translateY(0)
+				opacity: 1
+			> .icon-close
+				display: block
+				position: absolute
+				top: 10px
+				right: 10px
+				font-size: 1.55em
+				color: $gold
+				cursor: pointer

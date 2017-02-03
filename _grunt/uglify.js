@@ -1,22 +1,12 @@
 module.exports = {
     options: {
-    mangle: false,
-    banner:
-        "\n" +
-        "/*\n" +
-        " * -------------------------------------------------------\n" +
-        " * Project: <%= pkg.title %>\n" +
-        " * Version: <%= pkg.version %>\n" +
-        " * Author:  <%= pkg.author.name %> (<%= pkg.author.email %>)\n" +
-        " *\n" +
-        " * Copyright (c) <%= grunt.template.today(\"yyyy\") %> <%= pkg.title %>\n" +
-        " * -------------------------------------------------------\n" +
-        " */\n" +
-        "\n"
+      mangle: true,
+      sourceMap: true,
+      banner: '<%= banner %>'
     },
     dist: {
-        files: {
-            '<%= path.dest %>js/main.min.js': ['<%= path.dest %>js/main.js']
-        }
+      files: {
+        '<%= path.dest %>/js/main.min.js': ['<%= path.dest %>/js/main.js']
+      }
     }
 };

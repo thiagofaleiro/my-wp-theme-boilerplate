@@ -1,0 +1,46 @@
+// Section: Clientes
+section[data-section="clientes"]
+	h1
+		font-size: 1.4em
+
+.client-login
+	max-width: 400px
+	&--error
+		padding: 15px 20px
+		color: #700
+		background: rgba(red, 0.07)
+		border: 1px solid rgba(red, 0.15)
+		margin: 15px 0
+	// @include breakpoint(medium down landscape)
+	// 	.row
+	// 		display: block
+	// 	.small-12
+	// 		max-width: 100%
+	// 		padding: 0
+
+
+.client-processes
+	@extend .v-spacing-40
+	.accordion-item
+		&.is-open .accordion-item-content
+			height: auto
+			padding: 25px 20px
+			border-top-color: transparent
+			max-height: 10000px
+		&.is-open .accordion-item-title
+			border-bottom-color: transparent
+		&-content
+			padding: 0 20px
+			max-height: 0
+			transition: max-height 0.4s ease-in-out
+			> p:not(:first-child)
+				padding-top: 20px
+	// &--item
+	// 	border-top: 1px solid $border-color
+	// 	&, &-text
+	// 		@extend .v-spacing-20
+	// 	&-title
+	// 		@extend .line-below
+	// 	&-text
+	// 		& > p:not(:first-child)
+	// 			@extend .v-spacing-t-40

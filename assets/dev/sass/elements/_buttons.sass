@@ -1,0 +1,22 @@
+// Element: Buttons
+.btn
+	@extend .basic-total-transition
+	display: inline-block
+	padding: 12px 15px
+	line-height: 1
+	text-align: center
+	color: $gold
+	border: 1px solid $gold
+	background: none
+	cursor: pointer
+	> span
+		text-decoration: underline
+	&:hover, &.is-active
+		color: white
+		background: $gold
+		text-decoration: none
+
+	// Layout: Sizes
+	&.l-small
+		font-size: 12px
+		padding: 12px

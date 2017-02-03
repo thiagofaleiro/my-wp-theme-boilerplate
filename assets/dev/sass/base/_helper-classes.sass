@@ -1,0 +1,99 @@
+// ---------------------
+//	  Helpers classes
+// ---------------------
+
+// Align to center
+// ---------------
+.text-center
+	text-align: center
+
+.text-right
+	text-align: right
+
+.text-vertical-center
+	+text-vertical-center
+
+// Hide text
+// ---------
+.hide-text
+	text-align: left
+	text-indent: -1000px
+	overflow: hidden
+
+// Basic absolute
+// --------------
+.pos-absolute
+	+pos-absolute-top
+	left: 0
+.pos-absolute-right
+	+pos-absolute-top
+	right: 0
+
+// Default for icons
+// -----------------
+.icon
+	display: inline-block
+
+
+// Image alignment (wordpress classes)
+// ----------------------------------
+.alignleft
+	float: left
+	margin: 0 30px 30px 0
+
+.alignright
+	float: right
+	margin: 0 0 30px 30px
+
+.aligncenter
+	clear: both
+	float: none
+	margin: 0 auto 30px
+
+
+// Clearfix (that is an old technique)
+// -----------------------------------
+.clearfix:before, .clearfix:after
+	content: "\0020"
+	display: block
+	height: 0
+	overflow: hidden
+
+.clearfix:after
+	clear: both
+
+
+// Spacing
+// Classes for VERTICAL (top and/or bottom) spacing
+// '.v-spacing' (both) / '.v-spacing-t' or '.v-spacing-top' (top) / '.v-spacing-b' or '.v-spacing-bottom' (bottom)
+// ------------------------------------------------
+$v-spacing: 10, 20, 30, 40, 50, 60, 70, 80, 100, 120, 140, 160, 180, 200
+@each $s in $v-spacing
+	.v-spacing
+		&-#{$s}, &-t-#{$s}, &-top-#{$s}
+			padding-top: #{$s}px
+		&-#{$s}, &-b-#{$s}, &-bottom-#{$s}
+			padding-bottom: #{$s}px
+
+
+// CSS Transitions
+// -----------------------------------
+.basic-total-transition
+	+transition(all 0.4s ease)
+
+.basic-total-transition-long
+	+transition(all 0.8s ease)
+
+
+// Texts with live bellow
+.line-below
+	position: relative
+	padding-bottom: 20px
+	&:before
+		content: ''
+		width: 100px
+		height: 2px
+		background: $gold
+		position: absolute
+		left: 0
+		bottom: 0

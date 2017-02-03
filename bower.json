@@ -1,0 +1,27 @@
+{
+  "name": "hco-coworking",
+  "description": "Site com Wordpress.",
+  "main": "",
+  "authors": [
+    "Thiago Faleiro <contato@thiagofaleiro.com> (http://thiagofaleiro.com)"
+  ],
+  "license": "ISC",
+  "homepage": "agamaiscoworking.com.br",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.2.4",
+    "jquery": "^3.1.1",
+    "swiper": "^3.4.1",
+    "fancybox": "^2.1.5",
+    "parallax.js": "^1.4.2",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "mobile-detect": "^1.3.5"
+  }
+}
