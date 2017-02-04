@@ -1,7 +1,8 @@
 <?php
 
 // WIDGETS
-// Cleaning theme non suported widgets to avoid user errors
+// Cleaning theme non suported widgets to prevent user errors
+// ----------------------------------------------------------
 add_action('widgets_init', 'unregister_default_widgets', 11);
 function unregister_default_widgets() {
 	 unregister_widget('WP_Widget_Pages');
@@ -21,38 +22,29 @@ function unregister_default_widgets() {
 }
 
 // LOGIN PAGE > CUSTOM LOGO
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
-function my_login_logo() { ?>
-	<link rel='stylesheet' href='<?php echo get_bloginfo( 'template_directory' ) ?>/style.css' type='text/css' media='all' />
+// adding some styles to edit login page
+// -------------------------------------
+add_action( 'login_enqueue_scripts', 'my_login_styles' );
+function my_login_styles() { ?>
+	<!-- <link rel='stylesheet' href='<?php // echo get_bloginfo( 'template_directory' ) ?>/style.css' type='text/css' media='all' /> -->
 	<style type="text/css">
 		/* Login > logo */
-		body.login{
-			background: #033852 !important;
-		}
 		body.login div#login h1 a {
-			position: relative;
-			font-family: 'fernandes-silva-icons';
-			background-image: none;
-			margin-left: auto;
-			margin-right: auto;
-			width: 250px;
-			height: 70px;
-			text-align: center;
 		}
 		body.login div#login h1 a:before {
-			content: "\e902";
+			/*content: "\e902";
 			display: inline-block;
 			position: absolute;
 			top: 30px;
 			left: 0;
 			font-size: 3em;
-			text-indent: 0;
+			text-indent: 0;*/
 		}
 		body.login a{
-			color: rgba(255,255,255,0.5) !important;
+			/*color: rgba(255,255,255,0.5) !important;*/
 		}
 		body.login a:hover, body.login div#login h1 a:before{
-			color: #daae74 !important;
+			/*color: #daae74 !important;*/
 		}
 		/* Login bottom links */
 		/*.login #nav a, .login #backtoblog a { color: #0a48bf !important }*/
@@ -67,7 +59,8 @@ function my_login_logo() { ?>
 
 
 // UPDATE MESSAGES
-// Hide for no-Admin users
+// hide update message for no-Admin users
+// --------------------------------------
 add_action('admin_menu','hide_update_message');
 function hide_update_message() {
 	if ( !current_user_can('install_plugins') )
@@ -77,6 +70,7 @@ function hide_update_message() {
 
 // WELCOME PAGE
 // Remove some default widgets to clean admin welcome interface
+// ------------------------------------------------------------
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 function remove_dashboard_widgets() {
   global $wp_meta_boxes;
@@ -93,8 +87,8 @@ function remove_dashboard_widgets() {
 
 // ADMIN: MENU
 // change order of menu admin items
-add_filter('custom_menu_order', 'custom_menu_order');
-add_filter('menu_order', 'custom_menu_order');
+// add_filter('menu_order', 'custom_menu_order');
+// add_filter('custom_menu_order', 'custom_menu_order');
 function custom_menu_order($menu_ord) {
 	if (!$menu_ord) return true;
 	return array(	'index.php',
@@ -104,8 +98,10 @@ function custom_menu_order($menu_ord) {
 								'edit.php?post_type=ensaios-juridicos',
 								'edit.php?post_type=clientes');
 }
-// remove menu items
-add_action('admin_menu', 'remove_menus');
+
+// ADMIN: MENU
+// removing some non-used items
+// add_action('admin_menu', 'remove_menus');
 function remove_menus () {
 	global $menu;
 	$restricted = array(__('Comentários'), __('Posts'));
@@ -121,6 +117,8 @@ function remove_menus () {
 
 // ADMIN INTERFACE
 // CSS to adjust some admin interface elements
+// ------------------------------------------
+add_action('admin_head', 'style_admin_itens');
 function style_admin_itens() { ?>
 	<style type="text/css">
 		.acf_postbox .inside{ overflow: hidden; }
@@ -135,14 +133,14 @@ function style_admin_itens() { ?>
 	</style>
 <?php
 }
-add_action('admin_head', 'style_admin_itens');
 
-// ADMIN SCRIPT
+// ADMIN JS SCRIPT
+// ---------------
+// add_action('admin_enqueue_scripts', 'my_jquery_script');
 // Add script after jquery load
 // function my_jquery_script($hook) {
 //     if(is_post_type('selo')){
 //         wp_enqueue_script('custom_admin_script', get_bloginfo('template_url').'/js/title_letter_metadata.js', array('jquery'));
 //     }
 // }
-// add_action('admin_enqueue_scripts', 'my_jquery_script');
 ?>

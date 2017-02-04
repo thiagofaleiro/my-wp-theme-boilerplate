@@ -1,6 +1,6 @@
 <?php
   // Relative time - covers only Months and Years
-  $utils->my_human_time = function( $from, $to = '' ) {
+  $utils->human_time = function( $from, $to = '' ) {
   	if ( empty( $to ) ) {
   		$to = time();
   	}

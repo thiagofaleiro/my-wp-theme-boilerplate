@@ -1,5 +1,6 @@
 <?php
 // Basic theme configurations
+// --------------------------
 add_action( 'after_setup_theme', 'my_setup' );
 function my_setup() {
   // Define my timezone
@@ -19,11 +20,12 @@ function my_setup() {
 	$editor->add_cap('edit_theme_options');
 
   // Unregister tags taxononmy to clean dashboard options
-	unregister_taxonomy_for_object_type('post_tag', 'post');
+	// unregister_taxonomy_for_object_type('post_tag', 'post');
   // unregister_taxonomy_for_object_type('post_tag', 'video');
 }
 
 // Adding javascripts files
+// ------------------------
 add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts');
 function my_enqueue_scripts(){
 	// Adding scripts to footer with last update timestamp as version flag to avoid cache issues
