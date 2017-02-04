@@ -24,18 +24,18 @@ body
 			opacity: 0.6
 			&:hover
 				opacity: 1
-		&-close
-			@extend .icon-close
-			font-size: 2em
-			width: auto
-			height: auto
-			background: none
-			top: -40px
-			right: 0
-			line-height: 1
-			&:hover
-				text-decoration: none
-				transform: scale(1.2)
+		// &-close
+		// 	@extend .icon-close
+		// 	font-size: 2em
+		// 	width: auto
+		// 	height: auto
+		// 	background: none
+		// 	top: -40px
+		// 	right: 0
+		// 	line-height: 1
+		// 	&:hover
+		// 		text-decoration: none
+		// 		transform: scale(1.2)
 		&-nav
 			> span
 				// @extend .icon-arrow
@@ -58,24 +58,3 @@ body
 				transform: scaleX(-1) translateX(3.5em) rotate(-90deg)
 			&:hover > span
 				transform: scaleX(-1) translateX(3.5em) rotate(-90deg) scale(1.2)
-
-		// Responsive: Smartphone All
-		@media screen and (max-width: 767px)
-			&-nav
-				> span
-					font-size: 1em
-			// 	&:before
-			// 		display: block
-			// 		color: #555
-			// 		position: absolute
-			// 		top: 10px
-			// 		left: 0
-			// 		font-size: 19px
-			// 		font-weight: 300
-			// 		+transform(scaleY(2.5))
-			// 	&.fancybox-prev:before
-			// 		content: '<'
-			// 	&.fancybox-next:before
-			// 		content: '>'
-			// 		left: auto
-			// 		right: 0

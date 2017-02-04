@@ -49,14 +49,11 @@
 },{}],2:[function(require,module,exports){
 "use strict";
 
-// Contact Us
+// Contact (Form)
 // -----------------------------------------
-
-(function contactUsBar() {
-  $('.contact-us').on('click', 'button, .btn-close', function (e) {
-    e.delegateTarget.classList.toggle('is-open');
-  });
-})();
+// (function contact(){
+//
+// }());
 
 },{}],3:[function(require,module,exports){
 "use strict";
@@ -66,6 +63,9 @@ var _helpers = require("./modules/_helpers");
 var _helpers2 = _interopRequireDefault(_helpers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Getting just one Lodash method
+// import { map } from 'lodash/fp';
 
 // Header
 // -----------------------------------------

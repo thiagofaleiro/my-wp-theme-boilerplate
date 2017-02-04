@@ -1,0 +1,35 @@
+// Element: Custom Hamburguer Icon
+// ---------------------------------------
+$icon-border-size: 3px
+.icon-my-hamburguer
+	position: relative
+	font-size: 23px
+	display: inline-block
+	width: 1.2em
+	height: 1em
+	overflow: hidden
+	&:before, &:after
+		@extend .pos-absolute
+		content: ''
+		display: block
+		width: 100%
+		height: calc(50% - 3px)
+		box-shadow: 0 2px 0 $gold inset, -10px 2px 0 $gold
+		transition: transform 0.15s ease-in-out, box-shadow 0.25s ease-in-out 0.15s
+	&:after
+		height: 3px
+		top: auto
+		left: -0.75em
+		bottom: 3px
+		box-shadow: 0 2px 0 $gold inset
+	// Menu Opened - change it to cross (close)
+	body.is-menu-open &
+		&:before, &:after
+			box-shadow: 0 2px 0 $gold inset
+			transition: transform 0.3s ease-in-out 0.15s, box-shadow 0.15s ease-in-out
+		&:before
+			transform: rotate(45deg) translate(1px, -1px)
+			transform-origin: left top
+		&:after
+			transform: rotate(-45deg) translate(0.55em, 0.65em)
+			transform-origin: left bottom

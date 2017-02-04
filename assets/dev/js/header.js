@@ -1,6 +1,8 @@
 "use strict";
 
 import Helpers from './modules/_helpers';
+// Getting just one Lodash method
+// import { map } from 'lodash/fp';
 
 // Header
 // -----------------------------------------
