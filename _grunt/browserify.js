@@ -6,7 +6,13 @@ module.exports = {
       options: {
         debug: true,
         transform: [
-          [ "babelify", {presets: ["es2015"], sourceMapsAbsolute: true} ]
+          [ "babelify",
+            {
+              presets: ["es2015"],
+              sourceMapsAbsolute: true,
+              plugins: ["lodash"]
+            }
+          ]
         ]
       }
     }
