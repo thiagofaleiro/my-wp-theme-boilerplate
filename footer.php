@@ -4,7 +4,10 @@
 ?>
 		<footer class="footer">
 			<div class="row">
-				<p>Copyright</p>
+				<a href="#facebook" class="icons-facebook"></a>
+			</div>
+			<div class="row">
+				<p>Copyright &copy; <?php the_time('Y'); ?></p>
 			</div>
 		</footer>
 

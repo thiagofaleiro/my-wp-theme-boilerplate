@@ -4,10 +4,6 @@
 	$site_title = $utils->site_title();
 ?>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" xmlns:fb="http://ogp.me/ns/fb#"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
 
 	<head>
 		<meta charset="utf-8">
@@ -21,6 +17,9 @@
 
 		<!-- Responsive -->
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+
+		<!-- CSS -->
+		<link href="<?php echo $utils->template_url; ?>/style.css<?php echo '?v='.filemtime(TEMPLATEPATH . '/style.css');  ?>" rel="stylesheet">
 
 		<!-- Facebook - opengraph tags -->
 		<!-- <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -57,6 +56,7 @@
 						<p><a href="<?php bloginfo('url'); ?>"><?php bloginfo('title'); ?></a></p>
 					<?php } ?>
 				</div>
+
 				<nav class="menu column medium-7">
 					<?php
 						wp_nav_menu( array(
