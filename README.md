@@ -1,18 +1,25 @@
 ## My Wordpress Theme Boilerplate
 
-This is just the boilerplate I have used to code my wordpress projects.
+This is just the boilerplate I have used to code my Wordpress projects.
 
-Usually my workflow is to code all the project interfaces in the folder `_html`. When I finish all I split up the HTML base parts to the template base files like `header.php` and `footer.php`.
+Usually my workflow is to code all the project interfaces in the folder `_html`. When I finish I split up the HTML common parts on the template base files `header.php`, `footer.php` and `index.php`.
 
-You will notice it doesn't contain all the wordpress template files like `archive.php`, `search.php` and etc. You can add them as you need.
+You will notice it doesn't contain all the Wordpress template files like `archive.php`, `search.php` and etc. You can add them as you need.
 
-The template uses [Grunt](https://gruntjs.com/) to compile the assets (but will use [Gulp](https://gulpjs.com/) soon) and has some PHP helper methods that I often use on projects.
+### Why do I use this boilerplate?
 
-Currently the theme uses:
-* [SASS](http://sass-lang.com/) to build CSS;
-* [Foundation for sites](http://foundation.zurb.com/sites.html) - usually I just use the grid.
-* Javascript with **ES6 syntax and modules** which is transpiled as ES5 by [Babel](https://babeljs.io/); Also using [JShint](http://jshint.com/) to avoid compile JS with errors of syntax or event unused variables.
-* [Bower](https://bower.io/) to install the libraries. (Should be changed to Yarn)
+I use it because the following features:
+
+* **Task runner** to easily compile assets. Today is [Grunt](https://gruntjs.com/) but I'll change to [Gulp](https://gulpjs.com/) soon.
+* **Live reload**: the task runner also starts a server and watch assets changes to auto reload the page when I'm coding. Read more [here](#browser-reload).
+* [SASS](http://sass-lang.com/) to speed up and organize your CSS styles. It also creates sprite automatically if you want.
+* [Foundation for sites](http://foundation.zurb.com/sites.html) also is here to help, but usually I just use the grid system.
+* **Javascript split up in diferent files**
+  * By using **ES6 syntax and modules** which is transpiled as ES5 by [Babel](https://babeljs.io/);
+  * [JShint](http://jshint.com/) to avoid compiling JS with syntax errors or even unused variables.
+  * Gives better code maintainability.
+* [Bower](https://bower.io/) to keep third party libs organized and updated. (Should be changed to Yarn)
+* **Template functions.php** file split up in several files. This one is also very important to maintainability, especially when you have many custom functions and API endpoints, for example. Read more [here](#theme-functions).
 
 
 **Contents**
@@ -51,7 +58,7 @@ You can just compile the assets running `grunt build`.
 
 ### Browser reload
 
-The command `grunt` will start the server on `localhost:9001` and open it in a new tab on your browser showing the theme root folder. You can click on `_html` folder and select the HTML file to show and it'll be reloaded on every change on files in the folders: `_html` and `assets/dev`.
+The command `grunt` will start the server on `localhost:9001` and open it in a new tab on your browser showing the theme root folder. You can click on `_html` folder and select any HTML file. The task runner is watching the folders `_html` and `assets/dev`, so the HTML page will be reloaded whenever you change a file on these folders.
 
 When you start to code your PHP template files you can also get the brower reload using the [live reload chrome plugin](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en), just click on the icon and the page will refresh when an asset has been changed.
 
@@ -72,7 +79,7 @@ I'm using more and more fonts of icons (using [IconMoon App](https://icomoon.io/
 
 ## Theme Functions
 
-The theme functions are splited on seveal files and a few folders.
+The theme functions are split up on seveal files and a few folders.
 
 ### Folders and Base Files
 
